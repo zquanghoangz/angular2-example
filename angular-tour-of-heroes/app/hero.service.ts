@@ -4,7 +4,7 @@ import { Headers, Http } from '@angular/http'
 import 'rxjs/add/operator/toPromise';
 
 import { Hero } from './hero'
-
+import {HEROES} from './mock-heroes'
 
 @Injectable()
 export class HeroService {
@@ -13,7 +13,7 @@ export class HeroService {
     constructor(private http: Http) { }
 
     getHeroes(): Promise<Hero[]> {
-        return this.http.get(this.heroesUrl).toPromise().then(response => response.json().data as Hero[]).catch(this.handleError)
+        return Promise.resolve(HEROES)
     }
 
     getHeroesSlowly(): Promise<Hero[]> {
@@ -24,6 +24,10 @@ export class HeroService {
 
     getHero(id: number): Promise<Hero> {
         return this.getHeroes().then(heroes => heroes.find(hero => hero.id === id))
+    }
+
+    getUser(): Promise<any> {
+        return this.http.get('https://api.github.com/users/trungk18').toPromise().then(response => response.json()).catch(this.handleError);
     }
 
     private handleError(error: any): Promise<any> {
