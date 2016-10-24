@@ -12,10 +12,18 @@ import { Component, Input } from '@angular/core'
                 <button (click)="addUser($event, userName.value);" class="btn btn-primary">Add</button>
             </form>
         </div>        
+        <input (keyup)="onKey($event)" />
+        {{value}}
     `
 })
 
 export class FormComponent {
     @Input()
     addUser: void;
+
+    value = '';
+
+    onKey($event: KeyboardEvent): void {
+        this.value += (<HTMLInputElement>$event.target).value + ' | '
+    }   
 }
