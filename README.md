@@ -2,6 +2,12 @@
 
 This is what I have archived and created during the time studying Angular 2.
 
+##Demo
+
+1. [Angular Quickstart](http://codepen.io/trungk18/pens/public/)
+2. [Angular Tour of Heroes](http://stackoverflow.com/users/3375906/trungk18?tab=profile)
+3. [Angular Github Card](http://plnkr.co/edit/0saDy43dTPpPBl100R0p)
+
 ## Prerequisites
 
 Node.js and npm are essential to Angular development. 
@@ -55,8 +61,3 @@ Here are the test related scripts:
 * `npm test` - compiles, runs and watches the karma unit tests
 * `npm run e2e` - run protractor e2e tests, written in JavaScript (*e2e-spec.js)
 
-##Demo
-
-1. [Angular Quickstart](http://codepen.io/trungk18/pens/public/)
-2. [Angular Tour of Heroes](http://stackoverflow.com/users/3375906/trungk18?tab=profile)
-3. [Angular Github Card](https://github.com/trungk18)

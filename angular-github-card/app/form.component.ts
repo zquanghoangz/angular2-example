@@ -7,9 +7,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
             <form class="form-inline">
                 <div class="form-group">
                     <label for="userName">Username</label>
-                    <input #userName type="text" class="form-control" id="userName" placeholder="trungk18" />
+                    <input #userName type="text" class="form-control" id="userName" placeholder="Enter Github account, e.g: aa" />
                 </div>
-                <button (click)="onInputClick($event, userName.value);" class="btn btn-primary">Add</button>
+                <button (click)="onInputClick($event, userName.value);userName.value= ''" class="btn btn-primary">Add</button>
             </form>
         </div>        
     `
@@ -19,7 +19,7 @@ export class FormComponent {
     @Output() inputClick: EventEmitter<any> = new EventEmitter<any>()
 
     onInputClick($event: KeyboardEvent, userName: string): void {   
-        $event.preventDefault()     
+        $event.preventDefault()             
         this.inputClick.emit({            
             login: userName
         })

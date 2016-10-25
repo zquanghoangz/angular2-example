@@ -4,7 +4,7 @@ import { GithubService } from './github.service'
 @Component({
     selector: 'my-card',
     template: `
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-md-4 col-xs-12">
             <div class="card">
                 <img class="card-img-top img-fluid" src="{{card.avatar_url}}" alt="Card image cap" />
                 <div class="card-block">
