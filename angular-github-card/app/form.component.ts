@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, Output, EventEmitter } from '@angular/core'
 
 @Component({
     selector: 'my-form',
@@ -9,21 +9,19 @@ import { Component, Input } from '@angular/core'
                     <label for="userName">Username</label>
                     <input #userName type="text" class="form-control" id="userName" placeholder="trungk18" />
                 </div>
-                <button (click)="addUser($event, userName.value);" class="btn btn-primary">Add</button>
+                <button (click)="onInputClick($event, userName.value);" class="btn btn-primary">Add</button>
             </form>
         </div>        
-        <input (keyup)="onKey($event)" />
-        {{value}}
     `
 })
 
 export class FormComponent {
-    @Input()
-    addUser: void;
+    @Output() inputClick: EventEmitter<any> = new EventEmitter<any>()
 
-    value = '';
-
-    onKey($event: KeyboardEvent): void {
-        this.value += (<HTMLInputElement>$event.target).value + ' | '
-    }   
+    onInputClick($event: KeyboardEvent, userName: string): void {   
+        $event.preventDefault()     
+        this.inputClick.emit({            
+            login: userName
+        })
+    }
 }

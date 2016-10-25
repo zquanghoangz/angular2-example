@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 @Component({
     selector: 'my-app',
     template: `
-        <my-form [addUser]="addMoreUser"></my-form>                
+        <my-form (inputClick)="onInputClick($event)"></my-form>                
         <my-card *ngFor="let login of logins" [login]="login"></my-card>                
     `
 })
@@ -10,8 +10,8 @@ import { Component } from '@angular/core'
 export class AppComponent {
     logins: Array<string> = ['trungk18']
 
-    addMoreUser($event: MouseEvent, userName: string): void {
-        $event.preventDefault();
-        this.logins.concat(userName);
+    onInputClick(obj: any): void {        
+        console.log(obj)
+        this.logins.push(obj.login)
     }
 }
