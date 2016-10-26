@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { GithubService } from './github.service'
+import { Context } from './context'
 
 @Component({
     selector: 'my-card',
@@ -18,15 +19,16 @@ import { GithubService } from './github.service'
 })
 
 export class CardComponent implements OnInit {
-    @Input()
-    login: string;
+    //@Input() login : string;
+    @Input('login') userName: string;    
 
     card: any = {};
-    constructor(private githubService: GithubService) {
+    constructor(private githubService: GithubService, private context: Context) {
 
     }
 
     ngOnInit(): void {
-        this.githubService.getUser(this.login).then(response => { this.card = response; console.log(response) })
+        //this.githubService.getUser(this.login).then(response => { this.card = response; console.log(response) })
+        this.context.getUser(this.userName).then(response => this.card = response);
     }
 }

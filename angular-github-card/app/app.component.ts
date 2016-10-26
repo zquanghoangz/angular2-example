@@ -10,8 +10,7 @@ import { Component } from '@angular/core'
 export class AppComponent {
     logins: Array<string> = ['trungk18']
 
-    onInputClick(obj: any): void {        
-        console.log(obj)
+    onInputClick(obj: any): void {                
         this.logins.push(obj.login)
     }
 }
